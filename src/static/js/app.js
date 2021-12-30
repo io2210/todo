@@ -2,6 +2,11 @@ function App() {
     const { Container, Row, Col } = ReactBootstrap;
     return (
         <Container>
+              <Row>
+                <Col md={{ offset: 3, span: 6 }}>
+                    <h1>ToDO App by Itaru Ota</h1>
+                </Col>
+            </Row>
             <Row>
                 <Col md={{ offset: 3, span: 6 }}>
                     <TodoListCard />
@@ -90,30 +95,27 @@ function AddItemForm({ onNewItem }) {
     };
 
     return (
-        <>
-            <h1>ToDo App by Itaru Ota</h1>
-            <Form onSubmit={submitNewItem}>
-                <InputGroup className="mb-3">
-                    <Form.Control
-                        value={newItem}
-                        onChange={e => setNewItem(e.target.value)}
-                        type="text"
-                        placeholder="New Item"
-                        aria-describedby="basic-addon1"
-                    />
-                    <InputGroup.Append>
-                        <Button
-                            type="submit"
-                            variant="success"
-                            disabled={!newItem.length}
-                            className={submitting ? 'disabled' : ''}
-                        >
-                            {submitting ? 'Adding...' : 'Add Item'}
-                        </Button>
-                    </InputGroup.Append>
-                </InputGroup>
-            </Form>
-        </>
+        <Form onSubmit={submitNewItem}>
+            <InputGroup className="mb-3">
+                <Form.Control
+                    value={newItem}
+                    onChange={e => setNewItem(e.target.value)}
+                    type="text"
+                    placeholder="New Item"
+                    aria-describedby="basic-addon1"
+                />
+                <InputGroup.Append>
+                    <Button
+                        type="submit"
+                        variant="success"
+                        disabled={!newItem.length}
+                        className={submitting ? 'disabled' : ''}
+                    >
+                        {submitting ? 'Adding...' : 'Add Item'}
+                    </Button>
+                </InputGroup.Append>
+            </InputGroup>
+        </Form>
     );
 }
 
